@@ -151,7 +151,7 @@ def process_response(output: str, tools: dict | List[dict] = None, use_tool: boo
     lines = output.strip().split("\n")
     arguments_json = None
     special_tools = ["cogview", "simple_browser"]
-    tools = {tool['function']['name'] for tool in tools}
+    tools = {tool['function']['name'] for tool in tools} if tools else {}
 
     # 这是一个简单的工具比较函数，不能保证拦截所有非工具输出的结果，比如参数未对齐等特殊情况。
     ##TODO 如果你希望做更多判断，可以在这里进行逻辑完善。

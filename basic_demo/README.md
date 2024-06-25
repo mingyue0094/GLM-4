@@ -40,7 +40,7 @@ Read this in [English](README_en.md).
 | INT4 | 10 GB | 0.8s       | 23.4 tokens/s | 输入长度为 8000  |
 | INT4 | 17 GB | 4.3s       | 14.6 tokens/s | 输入长度为 32000 |
 
-### GLM-4-9B-Chat-1M
+#### GLM-4-9B-Chat-1M
 
 | 精度   | 显存占用  | Prefilling | Decode Speed | Remarks      |
 |------|-------|------------|--------------|--------------|
@@ -91,16 +91,17 @@ python trans_cli_demo.py # GLM-4-9B-Chat
 python trans_cli_vision_demo.py # GLM-4V-9B
 ```
 
-+ 使用 Gradio 网页端与 GLM-4-9B-Chat 模型进行对话。
++ 使用 Gradio 网页端与 GLM-4-9B 模型进行对话。
 
 ```shell
-python trans_web_demo.py
+python trans_web_demo.py  # GLM-4-9B-Chat
+python trans_web_vision_demo.py # GLM-4V-9B
 ```
 
 + 使用 Batch 推理。
 
 ```shell
-python cli_batch_request_demo.py
+python trans_batch_demo.py
 ```
 
 ### 使用 vLLM 后端代码
