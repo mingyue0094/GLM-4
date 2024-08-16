@@ -3,8 +3,11 @@ data_config:
   val_file: dev.jsonl
   test_file: dev.jsonl
   num_proc: 1
+
+combine: True
 max_input_length: 512
 max_output_length: 512
+
 training_args:
   # see `transformers.Seq2SeqTrainingArguments`
   output_dir: ./output
@@ -24,7 +27,7 @@ training_args:
   logging_steps: 10
   # settings for evaluation
   per_device_eval_batch_size: 4
-  evaluation_strategy: steps
+  eval_strategy: steps
   eval_steps: 500
   # settings for optimizer
   # adam_epsilon: 1e-6
@@ -35,10 +38,11 @@ training_args:
   generation_config:
     max_new_tokens: 512
   # set your absolute deepspeed path here
-  #deepspeed: ds_zero_2.json
+  # deepspeed: configs/ds_zero_3.json
 peft_config:
   peft_type: LORA
   task_type: CAUSAL_LM
   r: 8
   lora_alpha: 32
   lora_dropout: 0.1
+  target_modules: ["query_key_value"]
